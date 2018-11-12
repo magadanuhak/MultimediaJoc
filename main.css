@@ -1,0 +1,115 @@
+body{
+    background: url("assets/img/siteBg.jpg");
+}
+#joc{
+    background: rgba(0,0,0,0);
+    cursor: url("assets/img/sword.png");
+}
+
+.score{
+    position: absolute;
+    right: 0;
+    border: solid;
+    width: 100px;
+}
+.fruitspart, .mousepart{
+    /*border: solid 1px red;*/
+    position: absolute;
+}
+.fruitspart{
+    z-index: 1;
+    background: url("assets/img/game.jpeg") !important;
+}
+.p5Canvas{
+    z-index: 2;
+    background: rgba(0,0,0,1);
+}
+.mousepart {
+    z-index: 3;
+    background: rgba(0,0,0,0);
+}
+
+
+#images {
+    visibility: hidden;
+    position: absolute;
+}
+#playButton{
+
+}
+.hide{
+    left: -10000px;
+}
+.scoreBoard{
+    margin-left: 700px;
+
+
+}
+.topBar{
+    background: #563d7c!important;
+    color:white;
+    height: 120px;
+}
+.bottomBar{
+    background: #563d7c!important;
+    color:white;
+    height: 50px;
+}
+.logo{
+    font-family: 'Spicy Rice', cursive;
+    font-size: 67px;
+    margin-left: 70px;
+    margin-top: 8px;
+
+}
+.siteWrapper{
+    background:rgba(255,255,255,1);
+    height: 900px;
+
+}
+#wrapper_joc{
+    padding-top: 30px;
+    padding-left: 10px;
+    cursor: url(assets/img/knife.png), auto;
+}
+.gameMenu{
+    position: absolute;
+    z-index: 3;
+    margin-left: 200px;
+    margin-top: 170px;
+}
+.nextChallengeMenu{
+    background: white;
+    height: 300px;
+    width: 400px;
+    position: absolute;
+    z-index: 3;
+    margin-left:150px;
+    margin-top:50px;
+
+}
+#message{
+    width:100%;
+    height: 100%;
+    text-align: center;
+    font-family:'Spicy Rice', cursive;
+    color:seagreen;
+    font-size:30px;
+    margin-top: 10px;
+}
+
+#startChallenge{
+    margin-top: 50px;
+    margin-left: 100px;
+}
+.copyright{
+    text-align: center;
+    margin: 0 auto;
+
+}
+.progress{
+    margin-top: 370px;
+}
+#timeBar{
+    width: 100%;
+}

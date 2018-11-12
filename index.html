@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Sabia RICHER</title>
+    <link href="https://fonts.googleapis.com/css?family=Mukta+Mahee|Spicy+Rice" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="main.js" ></script>
+    <link rel="stylesheet" href="main.css">
+
+</head>
+<body>
+<header class="row topBar">
+    <div class="col-5 logo">
+        Fructo-Mania
+    </div>
+</header>
+<div class="siteWrapper container ">
+
+    <div id="images">
+        <img id="i0" src="assets/img/0.png" alt="">
+        <img id="i1" src="assets/img/1.png" alt="">
+        <img id="i2" src="assets/img/2.png" alt="">
+        <img id="i3" src="assets/img/4.png" alt="">
+        <img id="i4" src="assets/img/4.png" alt="">
+        <img id="i5" src="assets/img/5.png" alt="">
+        <img id="i6" src="assets/img/6.png" alt="">
+        <img id="i7" src="assets/img/7.png" alt="">
+        <img id="i8" src="assets/img/8.png" alt="">
+        <img id="i9" src="assets/img/9.png" alt="">
+    </div>
+    <div id="wrapper_joc" class="row">
+        <canvas id="joc" class="mousepart" width="700" height="400">
+        </canvas>
+        <canvas id="fructe" class="fruitspart" width="700" height="400">
+        </canvas>
+        <div class="gameMenu">
+            <button type="button" id="playButton" class="btn btn-info"><i class="fas fa-play"></i> Start Joc</button>
+            <button type="button" class="btn btn-info" id="scores">
+                <i class="fas fa-star"></i> Scoruri
+            </button>
+
+            <button type="button" id="about" class="btn btn-info"><i class="fas fa-info-circle"></i> Despre joc</button>
+        </div>
+        <div class="nextChallengeMenu hide">
+            <button type="button" id="startChallenge" class="btn btn-info"><i class="fas fa-play"></i><span id="challengeButtonText"> Pornire Challenge</span> <span id="challengeCount"></span></button>
+            <div id="message"> </div>
+        </div>
+
+    </div>
+    <div class="scoreBoard">
+        <div type="button" class="btn btn-primary">
+            Scor <span class="badge badge-light"><div id="score" >0</div></span>
+
+        </div>
+        <div type="button" class="btn btn-primary">
+            Top Scor <span class="badge badge-light"> <div id="bestScore" >0</div></span>
+        </div>
+        <div type="button" class="btn btn-primary">
+            Scor necesar <span class="badge badge-light"> <div id="necessaryScore" >0</div></span>
+        </div>
+
+    </div>
+    <div class="progress">
+        <progress id="timeBar" value="0"></progress>
+    </div>
+</div>
+
+Copy
+<div class="modal" id="modalFer" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalTitle"></h5>
+                <button type="button" class="close inchide" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="modalText">
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary inchide" data-dismiss="modal" >Închide</button>
+            </div>
+        </div>
+    </div>
+</div>
+<footer class="row bottomBar">
+    <div class="copyright">
+        Aplicație creată de Daniel Maga 2018 &copy;
+    </div>
+</footer>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+</html>
