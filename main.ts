@@ -1,5 +1,6 @@
 var iDir = "assets/img/";
 var bestScore = localStorage.getItem('bestScore');
+var music;
 var bestScoreItem;
 var currentMission;
 console.log(bestScore);
@@ -13,18 +14,29 @@ var fruitHeight = 50;
 var score;
 var fruitCtx, fruitCanvas;
 var knifeCtx, knifeCanvas;
-//initializare audio
-var audio = {};
-var audioDir = "assets/sound/";
-    audio['score'] = new Audio();
-    audio['score'].src = audioDir+"fruct_taiat.mp3";
-    audio['knife'] = new Audio();
-    audio['knife'].src = audioDir+"knife.mp3";
-    audio['intro'] = new Audio();
-    audio['intro'].src = audioDir+"intro.mp3";
+//Clasa sunetului in Joc
+class sunet{
+    audio = {};
+    audioDir = "assets/sound/";
+    constructor() {
+        this.audio['score'] = new Audio();
+        this.audio['score'].src = this.audioDir+"fruct_taiat.mp3";
+        this.audio['knife'] = new Audio();
+        this.audio['knife'].src = this.audioDir+"knife.mp3";
+        this.audio['intro'] = new Audio();
+        this.audio['intro'].src = this.audioDir+"intro.mp3";
+    }
 
-function soundSetVolume(sound, volume) {
-    audio[sound].volume = volume;
+     playSound(sound) {
+        this.audio[sound].play();
+    }
+    stopSound(sound){
+        this.audio[sound].pause();
+        this.audio[sound].currentTime = 0;
+    }
+    soundSetVolume(sound, volume) {
+        this.audio[sound].volume = volume;
+    }
 }
 function initCurrentMission() {
     if(localStorage.getItem('currentChallenge') == null) {
@@ -33,16 +45,11 @@ function initCurrentMission() {
     currentMission = localStorage.getItem('currentChallenge');
     document.querySelector('#challengeCount').innerHTML = currentMission;
 }
-function playSound(sound) {
-    audio[sound].play();
-}
+
 ​function getRnd(min, max) {
     return Math.floor(Math.random() * (max - min + 1) ) + min;
 }
-function stopSound(sound){
-    audio[sound].pause();
-    audio[sound].currentTime = 0;
-}
+
 function getFruct(){
  let fruct = Math.floor( Math.random() * 9);
  fructType = fruct;
@@ -78,7 +85,7 @@ function addScore(value) {
         bestScoreItem.innerHTML = newScore;
     }
     console.log(newScore);
-    playSound('score');
+    music.playSound('score');
 }
 function drawpoint(canvas, ctx, evt){
     let pos = getMousePos(canvas, evt);
@@ -91,7 +98,7 @@ function drawpoint(canvas, ctx, evt){
 function pornireJoc(){
 
     document.querySelector('.gameMenu').classList.add('hide');
-    playSound('intro');
+    music.playSound('intro');
     addFruct();
 }
 function killFruct(){
@@ -114,6 +121,7 @@ function killFruct(){
 }
 function initializare(){
     initCurrentMission();
+    music = new sunet();
     fruitCanvas = document.querySelector('#fructe');
     fruitCtx = fruitCanvas.getContext('2d');
     score = document.querySelector('#score');
@@ -160,7 +168,7 @@ document.addEventListener("DOMContentLoaded", function(){
         isDraw = true;
         color = getRandomColor();
         isTimer = true;
-        playSound('knife');
+        music.playSound('knife');
         });
     canvas.addEventListener('mousemove', function (evt) {
         if(isDraw) {
@@ -177,7 +185,7 @@ document.addEventListener("DOMContentLoaded", function(){
     canvas.addEventListener('mouseup', function(){
         knifeCtx.clearRect(0, 0, canvas.width, canvas.height);
         isDraw = false;
-        stopSound('knife');
+        music.stopSound('knife');
     });
     canvas.addEventListener('mouseleave', function(){
         knifeCtx.clearRect(0, 0, canvas.width, canvas.height);
@@ -214,6 +222,7 @@ document.addEventListener("DOMContentLoaded", function(){
         document.onclick=reEnable
     }
 });
+//Challenge la timp
 function startTimeChallenge() {
     fruitCtx.clearRect(0, 0, fruitCanvas.width, fruitCanvas.height);
     score.innerHTML = 0;
@@ -244,6 +253,7 @@ function startTimeChallenge() {
         clearInterval(bara);
         i = 0;
     } , missions.time[challenge].t * 1000);
+    //update la bara timp la fiecare secunda
     var bara = setInterval(frame, 1000);
     function frame() {
         if (i = 0) {
@@ -254,6 +264,7 @@ function startTimeChallenge() {
         }
     }
 };
+//setare Misiunilor
 var missions ={
     'time' : [
         {
@@ -365,4 +376,5 @@ var missions ={
             's' : 200000
         }
 ] };
+
 console.log(missions);
