@@ -3,7 +3,6 @@ var bestScore = localStorage.getItem('bestScore');
 var music;
 var bestScoreItem;
 var currentMission;
-console.log(bestScore);
 var isDraw = false;
 var isTimer = false;
 var fructPos;

@@ -67,7 +67,6 @@ body{
     background:#c158dc;
 }
 .light{
-
 }
 .logo{
     font-family: 'Spicy Rice', cursive;
@@ -128,4 +127,16 @@ body{
 #timeBar{
     width: 100%;
     background:#5c007a ;
+}
+svg{
+    display: block;
+    height: 450px;
+}
+.btn{
+    transition: 2s;
+}
+.btn:hover{
+
+    transition: 2s;
+    transform: rotateX(45deg);
 }
