@@ -1,17 +1,24 @@
-var ids="";
-var jsoncontinente ={
-    "continente":[
-        {"id":"M14635", "nume":"Europa", "fructe":[0,3,2]},
-        {"id":"M18374", "nume":"Asia", "fructe":[0,3,2]},
-        {"id":"M23852", "nume":"Australia", "fructe":[0,3,2]},
-        {"id":"M13728", "nume":"Africa", "fructe":[0,3,2]},
-        {"id":"M6827", "nume":"America de Nord", "fructe":[0,3,2]},
-        {"id":"M14635", "nume":"America de Sud", "fructe":[0,3,2]}
+var ids="M14635 M18374 M23852 M13728 M6827 M14635";
+    ids = ids.split(' ');
+var jsoncontinente = `{
+    "continente":
+        "M14635" : { "nume":"Europa", "fructe":[0,3,2]},
+        "M18374" : { "nume":"Asia", "fructe":[0,3,2]},
+        "M23852" : { "nume":"Australia", "fructe":[0,3,2]},
+        "M13728" : { "nume":"Africa", "fructe":[0,3,2]},
+        "M6827"  : { "nume":"America de Nord", "fructe":[0,3,2]},
+        "M14635" : { "nume":"America de Sud", "fructe":[0,3,2]}
 
-    ]
-};
-document.querySelector('svg').addEventListener('click',function(e){
-    let el=  e.target;
-    el;
-    console.log(el);
-});
+    
+}`
+jsoncontinente = JSON.parse(jsoncontinente);
+document.addEventListener('DOMContentLoaded',function () {
+    document.querySelector('svg').addEventListener('click',function(e){
+        let el =  e.target;
+
+        console.log(jsoncontinente)
+        if( ids.includes(el.id) ){
+            alert(jsoncontinente)
+        }
+    });
+})
