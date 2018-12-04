@@ -182,6 +182,9 @@ document.addEventListener("DOMContentLoaded", function(){
             knifeTime(canvas);
         }
     });
+    $('#video').on('click', function(){
+        window.open('https://youtube.com')
+    })
     canvas.addEventListener('mouseup', function(){
         knifeCtx.clearRect(0, 0, canvas.width, canvas.height);
         isDraw = false;

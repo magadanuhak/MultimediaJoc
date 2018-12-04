@@ -45,6 +45,15 @@ body{
 
 
 }
+.visible{
+    display: block;
+}
+path{
+    fill: darkkhaki;
+}
+path:hover{
+    fill:saddlebrown!important;
+}
 .topBar{
     background: #5c007a!important;
     color:white;
@@ -139,4 +148,8 @@ svg{
 
     transition: 2s;
     transform: rotateX(45deg);
+}
+ header a{
+    margin-top: 30px;
+    color:white;
 }
